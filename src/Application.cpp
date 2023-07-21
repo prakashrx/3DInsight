@@ -8,6 +8,11 @@ Application::Application(int screen_width, int screen_height)
 	
 }
 
+Application::~Application()
+{
+	glfwTerminate();
+}
+
 void Application::Initialize()
 {
 	/* Initialize the library */
@@ -16,7 +21,7 @@ void Application::Initialize()
 		return;
 	}
 
-	window = glfwCreateWindow(m_ScreenWidth, m_ScreenHeight, "OpenGL World", NULL, NULL);
+	window = glfwCreateWindow(m_ScreenWidth, m_ScreenHeight, "3D Insight", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -38,8 +43,6 @@ void Application::Run()
 {
 	while (!glfwWindowShouldClose(window))
 		MainLoop();
-
-	glfwTerminate();
 }
 
 void Application::MainLoop()

@@ -14,6 +14,7 @@ public:
 	virtual void MainLoop();
 	virtual void Render() {}
 
+	virtual ~Application();
 protected:
 	int m_ScreenWidth, m_ScreenHeight;
 	virtual void init_ortho(int left, int right, int bottom, int top);
