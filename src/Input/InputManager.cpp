@@ -2,7 +2,6 @@
 
 bool InputManager::m_Keys[GLFW_KEY_LAST] = { 0 };
 bool InputManager::m_MouseButtons[GLFW_MOUSE_BUTTON_LAST] = { 0 };
-MousePosition InputManager::m_MousePos = { 0, 0 };
 double InputManager::m_MouseScroll = 0;
 
 InputManager::InputManager(GLFWwindow* window)
@@ -10,8 +9,24 @@ InputManager::InputManager(GLFWwindow* window)
 {
     glfwSetKeyCallback(m_Window, key_callback);
     glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
-    glfwSetCursorPosCallback(m_Window, cursor_position_callback);
     glfwSetScrollCallback(m_Window, scroll_callback);
+}
+
+glm::vec2 InputManager::GetMousePosition() const
+{
+    double x, y;
+    glfwGetCursorPos(m_Window, &x, &y);
+    return { x,y };
+}
+
+void InputManager::SetMousePosition(const glm::vec2& pos)
+{
+    glfwSetCursorPos(m_Window, pos.x, pos.y);
+}
+
+void InputManager::SetMouseVisible(bool visible)
+{
+    glfwSetInputMode(m_Window, GLFW_CURSOR, visible ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_DISABLED);
 }
 
 void InputManager::Update()
@@ -35,10 +50,6 @@ void InputManager::mouse_button_callback(GLFWwindow* window, int button, int act
     else if (action == GLFW_RELEASE) {
         m_MouseButtons[button] = false;
     }
-}
-
-void InputManager::cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
-    m_MousePos = { xpos, ypos };
 }
 
 void InputManager::scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {

@@ -45,18 +45,26 @@ void Application::Run()
 		MainLoop();
 }
 
+void Application::PreRender() {
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+void Application::Render()
+{
+}
+
 void Application::MainLoop()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-
-	Render();
-
-	glfwSwapBuffers(window);
 	/* Poll for and process events */
 	InputManager::Update();
+	Update();
+	PreRender();
+	Render();
+	glfwSwapBuffers(window);
+}
+
+void Application::Update()
+{
 }
 
 void Application::init_ortho(int left, int right, int bottom, int top)

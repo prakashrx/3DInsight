@@ -12,7 +12,9 @@ public:
 	virtual void Initialize();
 	virtual void Run();
 	virtual void MainLoop();
-	virtual void Render() {}
+	virtual void Update();
+	virtual void PreRender();
+	virtual void Render();
 
 	virtual ~Application();
 protected:

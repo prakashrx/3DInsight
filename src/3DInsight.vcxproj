@@ -90,6 +90,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Camera\Camera.cpp" />
     <ClCompile Include="Input\InputManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mesh\Mesh.cpp" />
@@ -105,10 +106,12 @@
     <ClCompile Include="ThirdParty\Imgui\imgui_tables.cpp" />
     <ClCompile Include="ThirdParty\Imgui\imgui_widgets.cpp" />
     <ClCompile Include="Utils\Utils.cpp" />
+    <ClCompile Include="Apps\View3D\View3D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
     <ClInclude Include="Apps\Turtle\LSystemApp.h" />
+    <ClInclude Include="Camera\Camera.h" />
     <ClInclude Include="Input\InputManager.h" />
     <ClInclude Include="Mesh\Mesh.h" />
     <ClInclude Include="Apps\Turtle\LSystem.h" />
@@ -124,6 +127,7 @@
     <ClInclude Include="ThirdParty\Imgui\imstb_textedit.h" />
     <ClInclude Include="ThirdParty\Imgui\imstb_truetype.h" />
     <ClInclude Include="Utils\Utils.h" />
+    <ClInclude Include="Apps\View3D\View3D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

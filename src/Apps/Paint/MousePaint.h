@@ -15,7 +15,7 @@ public:
 	
 private:
 	void DrawPoints();
-	inline glm::vec2 GetPoint(const MousePosition& pos) {
+	inline glm::vec2 GetPoint(const glm::vec2& pos) {
 		double newX = Utils::MapRange(0, m_ScreenWidth, m_OrthoLeft, m_OrthoRight, pos.x);
 		double newY = Utils::MapRange(0, m_ScreenHeight, m_OrthoTop, m_OrthoBottom, pos.y);
 		return glm::vec2(newX, newY);
